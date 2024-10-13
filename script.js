@@ -1,13 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  // Select DOM elements
   const addButton = document.getElementById("add-task-btn");
   const taskInput = document.getElementById("task-input");
   const taskList = document.getElementById("task-list");
 
+  // Define the function to add a task
   function addTask() {
     const taskText = taskInput.value.trim();
 
     if (taskText === "") {
-      alert("Add your Task 🏁!");
+      alert("Please enter a task.");
       return;
     }
 
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
-    removeButton.className = "remove-btn";
+    removeButton.className.add("remove-btn");
 
     removeButton.onclick = function () {
       taskList.removeChild(taskItem);
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     taskInput.value = "";
   }
 
+  // Attach event listeners
   addButton.addEventListener("click", addTask);
   taskInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
